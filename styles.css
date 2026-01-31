@@ -117,13 +117,17 @@ nav a:hover {
   color: var(--navy);
 }
 
-/* --- Hero --- */
+/* --- Hero (banner) --- */
 .hero {
   position: relative;
   min-height: 60vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   overflow: hidden;
+}
+
+.hero--banner {
+  min-height: 0;
 }
 
 .hero-bg {
@@ -140,19 +144,84 @@ nav a:hover {
   pointer-events: none;
 }
 
+.hero-header {
+  position: relative;
+  z-index: 2;
+  padding: 0.6rem 0;
+}
+
+.hero-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-hero {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+.logo-hero span {
+  color: var(--gold-light);
+}
+
+.logo-hero:hover {
+  color: var(--gold-light);
+  text-decoration: none;
+}
+
+.nav-hero {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-hero a {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-hero a:hover {
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: 4rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.hero--banner .hero-content {
+  padding: 0.75rem 1.5rem 1rem;
+  justify-content: flex-start;
+}
+
+.hero--banner .hero-content:has(.hero-sub) {
+  padding-bottom: 1.5rem;
+}
+
+.hero--banner .hero-content h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0;
 }
 
 .hero-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold-light);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-sub {
@@ -298,6 +367,40 @@ nav a:hover {
   color: var(--text);
   margin: 0;
   line-height: 1.55;
+}
+
+/* --- Participants by discipline --- */
+/* --- Home intro --- */
+.home-intro {
+  padding: 3rem 0 4rem;
+  background: var(--white);
+}
+
+.home-desc {
+  color: var(--text);
+  max-width: 60ch;
+  margin: 0 0 1.5rem;
+  line-height: 1.65;
+}
+
+.home-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-links li {
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.home-links a {
+  font-weight: 600;
+  color: var(--navy-mid);
+}
+
+.home-links a:hover {
+  color: var(--navy);
 }
 
 /* --- Participants by discipline --- */
@@ -520,13 +623,45 @@ nav a:hover {
 }
 
 .schedule h1,
-.starting-order h1 {
+.starting-order h1,
+.suggestions h1 {
   color: var(--navy);
 }
 
 .schedule .section-intro,
-.starting-order .section-intro {
+.starting-order .section-intro,
+.suggestions .section-intro {
   color: var(--text);
+}
+
+/* --- Suggestions --- */
+.suggestions {
+  padding: 4rem 0;
+  background: var(--ice);
+}
+
+.suggestions-embed {
+  margin: 2rem 0 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.suggestions-embed iframe {
+  display: block;
+  min-height: 800px;
+}
+
+.suggestions-open-link {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.suggestions-open-link a {
+  color: var(--navy-mid);
+  font-weight: 600;
 }
 
 .schedule-list {

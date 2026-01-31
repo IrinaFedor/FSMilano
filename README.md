@@ -4,7 +4,8 @@ A public information website about figure skaters and the figure skating program
 
 ## What’s included
 
-- **Home** — Event overview, participants by discipline (Men’s, Women’s, Pairs, Ice Dance), with links to ISU bios
+- **Home** — Description of the site and links to all sections
+- **Participants by discipline** — Men’s, Women’s, Pairs, Ice Dance, Team Event with links to ISU bios
 - **Schedule** — Competition dates and times (Milano CET) with timezone conversion
 - **Athletes** — Notable athletes and countries
 - **Participants by country** — Full list of participants
@@ -23,7 +24,8 @@ No build step or dependencies required.
 
 ## Files
 
-- `index.html` — Home page and participants by discipline
+- `index.html` — Home page with site description and links
+- `participants-by-discipline.html` — Participants by discipline (Men’s, Women’s, Pairs, Ice Dance, Team Event)
 - `schedule.html` — Competition schedule with timezone conversion
 - `athletes.html` — Notable athletes
 - `participants.html` — Participants by country
