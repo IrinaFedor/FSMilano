@@ -123,20 +123,27 @@
       var select = document.getElementById('schedule-timezone');
       if (!select) return;
 
-      var timezones = [];
-      try {
-        if (typeof Intl.supportedValuesOf === 'function') {
-          timezones = Intl.supportedValuesOf('timeZone').slice(0).sort();
-        }
-      } catch (e) {}
-      if (timezones.length === 0) {
-        timezones = ['Europe/Rome', 'Europe/London', 'America/New_York', 'America/Los_Angeles', 'America/Chicago', 'Asia/Tokyo', 'Australia/Sydney', 'Europe/Paris', 'Europe/Berlin', 'Asia/Seoul', 'America/Toronto', 'Europe/Moscow', 'Asia/Singapore', 'Pacific/Auckland'];
-      }
+      var timezones = [
+        { value: 'Europe/London', label: 'London, Dublin, Edinburgh' },
+        { value: 'Europe/Rome', label: 'Milan, Rome, Paris' },
+        { value: 'Europe/Helsinki', label: 'Athens, Helsinki, Kyiv' },
+        { value: 'Europe/Istanbul', label: 'Istanbul, Ankara, Baghdad' },
+        { value: 'America/New_York', label: 'New York, Toronto, Miami' },
+        { value: 'America/Chicago', label: 'Chicago, Houston, Mexico City' },
+        { value: 'America/Denver', label: 'Denver, Phoenix, Salt Lake City' },
+        { value: 'America/Los_Angeles', label: 'Los Angeles, San Francisco, Seattle' },
+        { value: 'America/Sao_Paulo', label: 'São Paulo, Rio, Buenos Aires' },
+        { value: 'Asia/Shanghai', label: 'Beijing, Shanghai, Hong Kong' },
+        { value: 'Asia/Singapore', label: 'Singapore, Kuala Lumpur, Perth' },
+        { value: 'Asia/Tokyo', label: 'Tokyo, Seoul, Osaka' },
+        { value: 'Australia/Sydney', label: 'Sydney, Melbourne, Brisbane' },
+        { value: 'Pacific/Auckland', label: 'Auckland, Wellington, Fiji' }
+      ];
 
-      timezones.forEach(function (tz) {
+      timezones.forEach(function (item) {
         var opt = document.createElement('option');
-        opt.value = tz;
-        opt.textContent = tz.replace(/_/g, ' ');
+        opt.value = item.value;
+        opt.textContent = item.label;
         select.appendChild(opt);
       });
 
