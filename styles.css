@@ -237,6 +237,22 @@ nav a:hover {
   margin: 0;
 }
 
+.hero-tagline {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 40%, var(--slate) 100%);
+  padding: 1rem 0 1.5rem;
+}
+
+.hero-tagline .hero-sub,
+.hero-tagline .hero-desc {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 0.5rem;
+}
+
+.hero-tagline .hero-desc {
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
 /* --- Disciplines --- */
 .disciplines {
   padding: 4rem 0;
