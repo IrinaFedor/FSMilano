@@ -1,0 +1,771 @@
+/* --- Variables --- */
+:root {
+  --ice: #e8f4f8;
+  --ice-dark: #b8d4e0;
+  --navy: #0f2847;
+  --navy-mid: #1a3a5c;
+  --slate: #2d4a6a;
+  --gold: #c9a227;
+  --gold-light: #e8d48a;
+  --white: #fafcfd;
+  --text: #1a2d3d;
+  --text-muted: #4a6578;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(15, 40, 71, 0.08);
+  --shadow-hover: 0 12px 40px rgba(15, 40, 71, 0.12);
+}
+
+/* --- Reset & base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--white);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--white);
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: var(--navy);
+  margin: 0 0 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 0 0 0.35rem;
+}
+
+a {
+  color: var(--navy-mid);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Header --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ice-dark);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+nav a {
+  font-weight: 500;
+  color: var(--slate);
+}
+
+nav a:hover {
+  color: var(--navy);
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 40%, var(--slate) 100%);
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 70% 50%, rgba(184, 212, 224, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 1.5rem;
+}
+
+.hero-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin: 0 0 0.5rem;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 1rem;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 32ch;
+  margin: 0;
+}
+
+/* --- Disciplines --- */
+.disciplines {
+  padding: 4rem 0;
+  background: var(--ice);
+}
+
+.discipline-grid {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.discipline-grid li {
+  list-style: none;
+}
+
+.discipline-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.discipline-card:hover {
+  color: var(--navy);
+  text-decoration: none;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.discipline-card:focus {
+  color: var(--navy);
+  text-decoration: none;
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.disc-icon {
+  font-size: 1.25rem;
+}
+
+.disciplines-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* --- Athletes --- */
+.athletes {
+  padding: 4rem 0;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  max-width: 56ch;
+  margin: 0 0 2.5rem;
+}
+
+.athlete-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.athlete-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.athlete-card-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.athlete-card-link:focus {
+  color: inherit;
+  text-decoration: none;
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.athlete-card {
+  background: var(--white);
+  border: 1px solid var(--ice-dark);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.athlete-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.athlete-flag {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.athlete-country {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 0 0.25rem;
+}
+
+.athlete-discipline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.athlete-bio {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* --- Participants by discipline --- */
+.by-discipline {
+  padding: 4rem 0;
+  background: var(--white);
+}
+
+.discipline-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.discipline-tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 600;
+  color: var(--navy-mid);
+  background: var(--ice);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.discipline-tab:hover {
+  color: var(--navy);
+  background: var(--ice-dark);
+}
+
+.discipline-tab.active {
+  color: var(--navy);
+  background: var(--gold-light);
+  box-shadow: inset 0 0 0 1px var(--gold);
+}
+
+.discipline-tab-panel[hidden] {
+  display: none;
+}
+
+.discipline-list-block {
+  scroll-margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.discipline-list-block:last-child {
+  margin-bottom: 0;
+}
+
+.discipline-list-block h3 {
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.discipline-list-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.discipline-list.by-code {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.discipline-list.by-code li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--ice-dark);
+}
+
+.discipline-list.by-code li:last-child {
+  border-bottom: none;
+}
+
+.disc-code {
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 2.75rem;
+}
+
+.discipline-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.discipline-table th,
+.discipline-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ice-dark);
+}
+
+.discipline-table th {
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--ice);
+}
+
+.discipline-table-sortable {
+  cursor: pointer;
+  user-select: none;
+  padding-right: 1.5rem !important;
+  position: relative;
+}
+
+.discipline-table-sortable:hover {
+  background: var(--ice-dark);
+}
+
+.discipline-table-sortable::after {
+  content: '';
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--text-muted);
+  border-bottom: none;
+  margin-top: -2px;
+  opacity: 0.5;
+}
+
+.discipline-table-sortable.sort-asc::after {
+  border-bottom-color: var(--navy);
+  border-top-color: transparent;
+  border-bottom-width: 4px;
+  margin-top: -6px;
+  opacity: 1;
+}
+
+.discipline-table-sortable.sort-desc::after {
+  border-top-color: var(--navy);
+  opacity: 1;
+}
+
+.discipline-table th:first-child {
+  width: 4.5rem;
+}
+
+.discipline-table th:last-child {
+  width: 5.5rem;
+  text-align: right;
+}
+
+.discipline-table td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.discipline-table tbody tr:hover {
+  background: var(--ice);
+}
+
+.discipline-table tbody td a {
+  color: var(--navy-mid);
+  text-decoration: none;
+}
+
+.discipline-table tbody td a:hover {
+  text-decoration: underline;
+  color: var(--navy);
+}
+
+/* --- Participants (full list) --- */
+.participants {
+  padding: 4rem 0;
+  background: var(--white);
+}
+
+.participants-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.participants-nation {
+  background: var(--ice);
+  border: 1px solid var(--ice-dark);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.participants-nation h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.participants-nation p {
+  font-size: 0.9rem;
+  margin: 0 0 0.4rem;
+  color: var(--text);
+}
+
+.participants-nation p:last-child {
+  margin-bottom: 0;
+}
+
+.participants .section-intro a {
+  color: var(--navy-mid);
+}
+
+/* --- Schedule --- */
+.schedule {
+  padding: 4rem 0;
+  background: var(--ice);
+}
+
+.schedule h1,
+.starting-order h1 {
+  color: var(--navy);
+}
+
+.schedule .section-intro,
+.starting-order .section-intro {
+  color: var(--text);
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--shadow);
+}
+
+.schedule-dates,
+.schedule-datetime {
+  font-weight: 700;
+  color: var(--navy);
+  min-width: 6ch;
+}
+
+.schedule-datetime {
+  min-width: 14ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.schedule-item-medal {
+  border-left-color: var(--gold);
+  background: linear-gradient(to right, rgba(201, 162, 39, 0.06), var(--white));
+}
+
+a.schedule-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, transform 0.02s ease;
+}
+
+a.schedule-item-link:hover {
+  box-shadow: var(--shadow-hover);
+  background: var(--white);
+  color: inherit;
+}
+
+a.schedule-item-link .schedule-detail {
+  color: var(--text);
+}
+
+.schedule-order-link {
+  font-size: 0.9em;
+  color: var(--navy-mid);
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+a.schedule-item-link:hover .schedule-order-link {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+.schedule-detail {
+  color: var(--text);
+}
+
+.schedule-detail em {
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+.schedule-tz-row {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+.schedule-tz-row label {
+  margin-right: 0.5rem;
+  color: var(--text);
+}
+
+.schedule-timezone-select {
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--ice-dark);
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--navy);
+  background: var(--white);
+  min-width: 14rem;
+}
+
+.schedule-timezone-select:hover,
+.schedule-timezone-select:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.schedule-source {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Starting order / warmup groups --- */
+.starting-order {
+  padding: 4rem 0;
+  background: var(--ice);
+}
+
+.starting-order-back {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.starting-order-back a {
+  color: var(--navy-mid);
+}
+
+.starting-order-source {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+}
+
+.starting-order-source a {
+  color: var(--navy-mid);
+}
+
+.warmup-groups {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.warmup-group {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--gold);
+}
+
+.warmup-group h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+  color: var(--navy);
+}
+
+.warmup-list {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+.warmup-list li {
+  padding: 0.25rem 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.warmup-name {
+  color: var(--text);
+}
+
+a.warmup-name {
+  color: var(--navy-mid);
+  text-decoration: none;
+}
+
+a.warmup-name:hover {
+  text-decoration: underline;
+  color: var(--navy);
+}
+
+.warmup-country {
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 0.9em;
+  min-width: 2.75rem;
+}
+
+/* --- Footer --- */
+.site-footer {
+  padding: 2.5rem 0;
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.site-footer .container {
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+}
+
+.site-footer a {
+  color: var(--gold-light);
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .site-header .container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  nav {
+    gap: 1.25rem;
+  }
+
+  .schedule-item,
+  a.schedule-item-link {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .schedule-dates,
+  .schedule-datetime {
+    min-width: unset;
+  }
+}
