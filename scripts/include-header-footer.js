@@ -12,7 +12,6 @@
     '<a href="index.html">Home</a>' +
     '<a href="participants-by-discipline.html">Participants by discipline</a>' +
     '<a href="schedule.html">Schedule</a>' +
-    '<a href="athletes.html">Athletes</a>' +
     '<a href="participants.html">Participants by country</a>' +
     '<a href="suggestions.html">Suggestions</a>' +
     '</nav>' +
